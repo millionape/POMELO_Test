@@ -1,0 +1,159 @@
+swagger: '2.0'
+info:
+  description: 'This api doc is for Pomelo interviewing purpose only'
+  version: 1.0.0
+  title: Pomelo test APIs
+host: localhost:3000
+basePath: /
+schemes:
+  - http
+paths:
+  '/transform':
+    post:
+      tags:
+        - Transform
+      summary: Transform the input data into valid format
+      description: ''
+      operationId: transform
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: Input data
+          description: Data to transform
+          schema:
+            $ref: '#/definitions/InputData'
+              
+      responses:
+        '200':
+          description: Tranformed data
+          schema:
+            $ref: '#/definitions/DataTranformationResponse'
+definitions:
+  InputData:
+    type: object
+    properties:
+      '0':
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: number
+              example: 10
+            title:
+              type: string
+              example: House
+            level:
+              type: number
+              example: 0
+            children:
+              type: array
+              items:
+                type: object
+            parent_id:
+              type: number
+              example: null
+                
+      '1':
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: number
+              example: 10
+            title:
+              type: string
+              example: House
+            level:
+              type: number
+              example: 1
+            children:
+              type: array
+              items:
+                type: object
+            parent_id:
+              type: number
+              example: 2
+
+      '2':
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: number
+              example: 10
+            title:
+              type: string
+              example: House
+            level:
+              type: number
+              example: 2
+            children:
+              type: array
+              items:
+                type: object
+            parent_id:
+              type: number
+              example: 4
+
+  DataTranformationResponse:
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          type: number
+          example: 2
+        title:
+          type: string
+          example: House
+        level:
+          type: number
+          example: 0
+        parent_id:
+          type: number
+          example: null
+        children:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: number
+                example: 4
+              title:
+                type: string
+                example: House
+              level:
+                type: number
+                example: 0
+              parent_id:
+                type: number
+                example: 2
+              children:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: number
+                      example: 6
+                    title:
+                      type: string
+                      example: House
+                    level:
+                      type: number
+                      example: 0
+                    parent_id:
+                      type: number
+                      example: 4
+                    children:
+                      type: array
+                      items:
+                        type: object
+  

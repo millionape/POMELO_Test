@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible"
+          content="ie=edge">
+    <title>Document</title>
+
+    <script src='https://code.jquery.com/jquery-3.5.1.js'></script>
+    <script src='https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js'></script>
+    <link href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" rel="stylesheet">
+    <script>
+        $(document).ready(function() {
+            $('#resultTable').DataTable({
+                "pageLength": 10,
+                "lengthChange": false
+            });
+        } );
+    </script>
+</head>
+
+<body>
+    <div class="entry">
+        <h1>Github repo searching result of "nodejs"</h1>
+        <div class="body">
+            <table id="resultTable" class="display" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Fullname</th>
+                        <th>Owner</th>
+                        <th>Size</th>
+                        <th>Created date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each searchResult}}
+                        <tr>
+                            <td>{{this.name}}</td>
+                            <td>{{this.full_name}}</td>
+                            <td>{{this.owner.login}}</td>
+                            <td>{{this.size}}</td>
+                            <td>{{this.created_at}}</td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

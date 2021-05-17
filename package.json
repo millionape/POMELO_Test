@@ -1,0 +1,19 @@
+{
+  "name": "pomelo_test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "serve": "node app.js"
+  },
+  "author": "KITTAPHORN.J",
+  "license": "ISC",
+  "devDependencies": {
+    "hapi": "^18.1.0"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "hbs": "^4.1.2",
+    "vision": "^5.4.4"
+  }
+}
